@@ -11,11 +11,11 @@ import java.util.List;
  */
 public class AixListResponse extends AixResponse {
 
-    public AixListResponse(int code) {
+    public AixListResponse(Code code) {
         super(code);
     }
 
-    public AixListResponse(int code, List<?> info) {
+    public AixListResponse(Code code, List<?> info) {
         super(code, new ListWithTotal(info));
 
     }

@@ -6,25 +6,25 @@ package org.zju.vipa.aix.web.container.api.response;
  * @Description: todo:
  */
 public abstract class Response {
-    int code;//20000  成功
+    Code code;//20000  成功
     Object data;
 
-    public Response(int code) {
+    public Response(Code code) {
         this.code = code;
         this.data ="";
     }
 
 
-    public Response(int code, Object data) {
+    public Response(Code code, Object data) {
         this.code = code;
         this.data = data;
     }
 
     public int getCode() {
-        return code;
+        return code.getValue();
     }
 
-    public void setCode(int code) {
+    public void setCode(Code code) {
         this.code = code;
     }
 

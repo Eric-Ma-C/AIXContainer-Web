@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zju.vipa.aix.container.api.AIXClientCenterService;
 import org.zju.vipa.aix.web.container.api.response.AixResponse;
+import org.zju.vipa.aix.web.container.api.response.Code;
 import org.zju.vipa.aix.web.container.dubbo.RpcClient;
 
 /**
@@ -25,14 +26,14 @@ public class ServerInfoController {
     private AixResponse srverLogInit(){
 
         service.serverLogInit();
-        return new AixResponse(20000);
+        return new AixResponse(Code.SUCCESS);
 
     }
     @GetMapping("/log/stop")
     private AixResponse srverLogStop(){
 
         service.serverLogStop();
-        return new AixResponse(20000);
+        return new AixResponse(Code.SUCCESS);
 
     }
     @GetMapping("/log/line")
@@ -42,6 +43,6 @@ public class ServerInfoController {
 //            str=str.replace("\n", "</br>");
 //        }
 //        System.out.println(str.toCharArray());
-        return new AixResponse(20000,str);
+        return new AixResponse(Code.SUCCESS,str);
     }
 }
