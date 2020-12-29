@@ -3,10 +3,12 @@ package org.zju.vipa.aix.web.container.dubbo;
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ReferenceConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
+
 import org.zju.vipa.aix.container.api.AIXClientCenterService;
 import org.zju.vipa.aix.container.common.config.NetworkConfig;
 import org.zju.vipa.aix.container.common.exception.AIXBaseException;
 import org.zju.vipa.aix.container.common.exception.ExceptionCodeEnum;
+import org.zju.vipa.aix.web.container.util.PropertyUtils;
 
 
 /**
@@ -45,7 +47,7 @@ public class RpcClient {
 
         // 当前应用配置
         ApplicationConfig application = new ApplicationConfig();
-        application.setName("AIXClientCenterService-Consumer");
+        application.setName("AIX-Consumer");
 
         // 连接注册中心配置
         RegistryConfig registry = new RegistryConfig();
@@ -61,6 +63,9 @@ public class RpcClient {
         referenceConfig.setRegistry(registry);
         referenceConfig.setInterface(AIXClientCenterService.class);
         referenceConfig.setVersion("1.0.0");
+        /** 用于区分不同的dubbo服务 */
+        referenceConfig.setGroup(PropertyUtils.getProperty("aix.properties","dubbo.consumer.group","default-group"));
+
 
         // 和本地bean一样使用xxxService
         // 注意：此代理对象内部封装了所有通讯细节，对象较重，请缓存复用

@@ -90,6 +90,12 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <extensions>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
@@ -98,6 +104,26 @@
             </extension>
         </extensions>
         <plugins>
+            <!--读取配置文件-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0-alpha-2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>read-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <files>
+                                <file>${project.basedir}/src/main/resources/aix.properties</file>
+                            </files>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -136,8 +162,7 @@
 
                             <serverId>vipa-207-key</serverId>
                             <fromFile>target/container-0.0.1-SNAPSHOT.jar</fromFile>
-                            <!--                            <url>scp://10.214.211.207/nfs2/mc/docker/aix-center</url>-->
-                            <url>scpexe://10.214.211.207/nfs2/aix-container/web_dubbo_backend</url>
+                            <url>${wagon.upload.server.path}</url>
 
                         </configuration>
                     </execution>
