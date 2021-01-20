@@ -7,7 +7,9 @@ package org.zju.vipa.aix.web.container.api.response;
  */
 public enum Code {
     SUCCESS(20000),
-    NULL(50000);
+    FAILED(30000),
+    EXCEPTION(50000),
+    NULL(60000);
 
     private int value;
     Code(int i) {

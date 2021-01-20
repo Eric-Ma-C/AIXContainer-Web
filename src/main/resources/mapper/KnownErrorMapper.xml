@@ -1,0 +1,45 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper-->
+<!--        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+<!--        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--&lt;!&ndash; namespace:改mapper.xml映射文件的唯一标识并且必须和数据处理层的接口的路径相同&ndash;&gt;-->
+<!--<mapper namespace="mapper.KnownErrorMapper">-->
+<!--    &lt;!&ndash;   必须添加property属性 ，区别于是否加主键&ndash;&gt;-->
+<!--    <resultMap id="known_error" type="KnownError">-->
+<!--        <id column="userid" property="userid" javaType="int" ></id>-->
+<!--        <result column="username" property="username" javaType="String" ></result>-->
+<!--        <result column="userage" property="userage" javaType="int" ></result>-->
+<!--        <result column="userpwd" property="userpwd" javaType="String" ></result>-->
+<!--    </resultMap>-->
+<!--    &lt;!&ndash;id的值必须和数据处理层的接口名一致&ndash;&gt;-->
+<!--    &lt;!&ndash;此处的User&ndash;&gt;-->
+<!--    <select id="queryAllKnownError" resultType="KnownError">-->
+<!--        select * from  known_error-->
+<!--    </select>-->
+<!--    <select id="queryuserbyid"   parameterType="int" resultMap="user" resultType="KnownError">-->
+<!--        select * from  known_error-->
+<!--        <trim suffixOverrides="and"  prefixOverrides="and">-->
+<!--            <where>-->
+<!--                <if test="userid!=null">-->
+<!--                    and userid = #{userid}-->
+<!--                </if>-->
+<!--            </where>-->
+<!--        </trim>-->
+<!--    </select>-->
+<!--    <select id="queryuserbyname" resultType="User" parameterType="string" resultMap="user">-->
+<!--        select * from  user-->
+<!--        <trim suffixOverrides="and"  prefixOverrides="and">-->
+<!--            <where>-->
+<!--                <if test="username!=null">-->
+<!--                    and username = #{username}-->
+<!--                </if>-->
+<!--            </where>-->
+<!--        </trim>-->
+<!--    </select>-->
+<!--    <update id="UpdUser" parameterType="User">-->
+<!--    </update>-->
+<!--    <delete id="DelUser"></delete>-->
+<!--    <insert id="AddUser" parameterType="User" >-->
+<!--        insert into  user value (${userid},#{username},${userage},#{userpwd})-->
+<!--    </insert>-->
+<!--</mapper>-->

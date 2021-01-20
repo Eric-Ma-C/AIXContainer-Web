@@ -1,6 +1,6 @@
 package org.zju.vipa.aix.web.container;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 //import org.zju.vipa.aix.web.container.kafka.ClientRealTimeLogConsumerMaven;
 
 /**

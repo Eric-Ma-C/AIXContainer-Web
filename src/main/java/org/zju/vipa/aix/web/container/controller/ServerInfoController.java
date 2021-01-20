@@ -11,7 +11,7 @@ import org.zju.vipa.aix.web.container.dubbo.RpcClient;
 /**
  * @Date: 2020/6/3 16:26
  * @Author: EricMa
- * @Description: todo:
+ * @Description:
  */
 @RestController
 @RequestMapping("/aix/server")
