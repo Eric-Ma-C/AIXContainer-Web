@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.zju.vipa.aix.web.container.db.entity.KnownError;
+import org.zju.vipa.aix.container.common.db.entity.aix.KnownError;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;

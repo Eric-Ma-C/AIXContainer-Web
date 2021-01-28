@@ -186,7 +186,7 @@
                         </goals>
                         <configuration>
                             <files>
-                                <file>${project.basedir}/src/main/resources/aix.properties</file>
+                                <file>${project.basedir}/src/main/resources/application-aix205.properties</file>
                             </files>
                         </configuration>
                     </execution>

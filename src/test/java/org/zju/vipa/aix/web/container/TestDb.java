@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.zju.vipa.aix.web.container.db.entity.KnownError;
+import org.zju.vipa.aix.container.common.db.entity.aix.KnownError;
 import org.zju.vipa.aix.web.container.db.mapper.KnownErrorMapper;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class TestDb {
     @Rollback
     public void test() throws Exception {
         KnownError record=new KnownError();
-        record.setId(1L);
+        record.setId(1);
         record.setName("newName");
         knownErrorMapper.updateByPrimaryKeySelective(record);
 //        knownErrorMapper.insert("AAA", "20");

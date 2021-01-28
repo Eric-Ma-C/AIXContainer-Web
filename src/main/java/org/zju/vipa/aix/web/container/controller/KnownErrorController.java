@@ -7,7 +7,6 @@ import org.zju.vipa.aix.container.common.utils.JsonUtils;
 import org.zju.vipa.aix.web.container.api.response.AixResponse;
 import org.zju.vipa.aix.web.container.api.response.Code;
 import org.zju.vipa.aix.web.container.api.vo.KnownErrorVO;
-import org.zju.vipa.aix.web.container.db.entity.KnownError;
 import org.zju.vipa.aix.web.container.dubbo.RpcClient;
 import org.zju.vipa.aix.web.container.service.KnownErrorService;
 
@@ -105,6 +104,22 @@ public class KnownErrorController {
             boolean ok = knownErrorService.insert(name, keywords,repairCmds);
 
             return ok ? new AixResponse(Code.SUCCESS) : new AixResponse(Code.FAILED, "新建失败!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new AixResponse(Code.EXCEPTION, e.getMessage());
+        }
+
+    }
+
+    @PostMapping("/delete")
+    public AixResponse deleteById(@RequestBody String body) {
+        String id = JsonUtils.getValue(body, "id");
+
+        try {
+
+            boolean ok = knownErrorService.deleteById(id);
+
+            return ok ? new AixResponse(Code.SUCCESS) : new AixResponse(Code.FAILED, "删除失败!");
         } catch (Exception e) {
             e.printStackTrace();
             return new AixResponse(Code.EXCEPTION, e.getMessage());

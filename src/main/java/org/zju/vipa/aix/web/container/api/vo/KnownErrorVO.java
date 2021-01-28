@@ -1,7 +1,7 @@
 package org.zju.vipa.aix.web.container.api.vo;
 
+import org.zju.vipa.aix.container.common.db.entity.aix.KnownError;
 import org.zju.vipa.aix.container.common.utils.JsonUtils;
-import org.zju.vipa.aix.web.container.db.entity.KnownError;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,18 +15,18 @@ import java.util.List;
 public class KnownErrorVO implements Serializable {
     private long id;
     private String name;
-    private String key_words;
-    private List<String> repair_cmds;
+    private String keyWords;
+    private List<String> repairCmds;
 
     public KnownErrorVO(KnownError error) {
         id = error.getId();
         name = error.getName();
-        key_words = error.getKey_words();
-        List<String> list = JsonUtils.getList(error.getRepair_cmds(), String.class);
+        keyWords = error.getKeyWords();
+        List<String> list = JsonUtils.getList(error.getRepairCmds(), String.class);
         if (list != null) {
-            repair_cmds=list;
+            repairCmds =list;
         }else {
-            repair_cmds=new ArrayList<>();
+            repairCmds =new ArrayList<>();
 //            repair_cmds.add("");
         }
 
@@ -51,20 +51,20 @@ public class KnownErrorVO implements Serializable {
     }
 
 
-    public String getKey_words() {
-        return key_words;
+    public String getKeyWords() {
+        return keyWords;
     }
 
-    public void setKey_words(String key_words) {
-        this.key_words = key_words;
+    public void setKeyWords(String keyWords) {
+        this.keyWords = keyWords;
     }
 
 
-    public List<String> getRepair_cmds() {
-        return repair_cmds;
+    public List<String> getRepairCmds() {
+        return repairCmds;
     }
 
-    public void setRepair_cmds(List<String> repair_cmds) {
-        this.repair_cmds = repair_cmds;
+    public void setRepairCmds(List<String> repairCmds) {
+        this.repairCmds = repairCmds;
     }
 }

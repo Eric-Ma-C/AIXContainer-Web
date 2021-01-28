@@ -5,9 +5,9 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.zju.vipa.aix.container.api.AIXClientCenterService;
+import org.zju.vipa.aix.container.common.db.entity.aix.KnownError;
 import org.zju.vipa.aix.container.common.env.KnownErrorRuntime;
 import org.zju.vipa.aix.web.container.api.vo.KnownErrorVO;
-import org.zju.vipa.aix.web.container.db.entity.KnownError;
 import org.zju.vipa.aix.web.container.dubbo.RpcClient;
 import org.zju.vipa.aix.web.container.service.KnownErrorService;
 
@@ -42,7 +42,7 @@ public class KnownErrorAspect {
         List<KnownError> knownErrorList = knownErrorService.getKnownErrorList();
         List<KnownErrorRuntime> knownErrorRuntimeList=new ArrayList<>();
         for (KnownError error : knownErrorList) {
-            knownErrorRuntimeList.add(new KnownErrorRuntime(error.getName(), error.getKey_words(),error.getRepair_cmds()));
+            knownErrorRuntimeList.add(new KnownErrorRuntime(error.getName(), error.getKeyWords(),error.getRepairCmds()));
         }
 
 
