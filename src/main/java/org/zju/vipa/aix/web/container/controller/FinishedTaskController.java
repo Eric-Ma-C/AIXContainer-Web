@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @Date: 2021/1/24 13:46
  * @Author: EricMa
- * @Description: :
+ * @Description:
  */
 @RestController
 @RequestMapping("/aix/finished_task")
@@ -45,7 +45,6 @@ public class FinishedTaskController {
         String id = JsonUtils.getValue(body, "id");
 
         try {
-
             boolean ok = finishedTaskService.deleteById(id);
 
             return ok ? new AixResponse(Code.SUCCESS) : new AixResponse(Code.FAILED, "删除失败!");

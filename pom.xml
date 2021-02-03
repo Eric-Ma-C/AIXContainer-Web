@@ -23,6 +23,29 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            <id>aix205</id>-->
+<!--&lt;!&ndash;            <activation>&ndash;&gt;-->
+<!--&lt;!&ndash;                <activeByDefault>true</activeByDefault>&ndash;&gt;-->
+<!--&lt;!&ndash;            </activation>&ndash;&gt;-->
+<!--            <properties>-->
+<!--                <profile.active>aix205</profile.active>-->
+<!--                <wagon.upload.server.path>scpexe://10.214.211.205/nfs/aix-container/web_dubbo_backend</wagon.upload.server.path>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            <id>aix207</id>-->
+<!--            <activation>-->
+<!--                <activeByDefault>true</activeByDefault>-->
+<!--            </activation>-->
+<!--            <properties>-->
+<!--                <profile.active>aix207</profile.active>-->
+<!--                <wagon.upload.server.path>scpexe://10.214.211.207/nfs2/aix-container/web_dubbo_backend</wagon.upload.server.path>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--    </profiles>-->
+
     <dependencies>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -152,11 +175,29 @@
     </dependencies>
 
     <build>
+
         <resources>
             <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
+<!--                <directory>${project.basedir}/src/main/resources</directory>-->
+                <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                &lt;!&ndash;①我们通过 excludes 来将所有的 application*.properties 排除在外，这样 maven 在打包时就不会复制这些文件。毕竟我们不希望把 application-dev.properties 也包含在 prod 的 jar 包里。&ndash;&gt;-->
+<!--                <excludes>-->
+<!--                    <exclude>application*.properties</exclude>-->
+<!--                </excludes>-->
+<!--            </resource>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                &lt;!&ndash;②通过开启 filtering，maven 会将文件中的 @XX@ 替换 profile 中定义的 XX 变量/属性。另外，我们还通过 includes 来告诉 maven 根据profile 来复制对应的 properties 文件&ndash;&gt;-->
+<!--                <filtering>true</filtering>-->
+<!--                <includes>-->
+<!--                    <include>application.properties</include>-->
+<!--                    <include>application-${profile.active}.properties</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
 <!--            &lt;!&ndash;此处的配置是识别到mapper.xml文件，也可以在application.properties中配置&ndash;&gt;-->
 <!--            <resource>-->
 <!--                <directory>src/main/java</directory>-->
@@ -186,7 +227,7 @@
                         </goals>
                         <configuration>
                             <files>
-                                <file>${project.basedir}/src/main/resources/application-aix205.properties</file>
+                                <file>${project.basedir}/src/main/resources/application.properties</file>
                             </files>
                         </configuration>
                     </execution>
@@ -196,6 +237,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.0.RELEASE</version>
                 <configuration>
                     <mainClass>org.zju.vipa.aix.web.container.ContainerWebApplication</mainClass>
                 </configuration>
@@ -239,5 +281,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

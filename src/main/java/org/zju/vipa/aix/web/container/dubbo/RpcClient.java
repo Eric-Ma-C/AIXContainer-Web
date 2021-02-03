@@ -64,7 +64,7 @@ public class RpcClient {
         referenceConfig.setInterface(AIXClientCenterService.class);
         referenceConfig.setVersion("1.0.0");
         /** 用于区分不同的dubbo服务 */
-        referenceConfig.setGroup(PropertyUtils.getProperty("application-aix205.properties","dubbo.consumer.group","default-group"));
+        referenceConfig.setGroup(PropertyUtils.getProperty("application.properties","dubbo.consumer.group","default-group"));
 
 
         // 和本地bean一样使用xxxService
