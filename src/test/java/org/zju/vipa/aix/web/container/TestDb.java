@@ -26,10 +26,11 @@ public class TestDb {
     @Rollback
     public void test() throws Exception {
         KnownError record=new KnownError();
-        record.setId(1);
-        record.setName("newName");
+        record.setId(5);
+        record.setName("HTTP4_RETRY");
         knownErrorMapper.updateByPrimaryKeySelective(record);
-//        knownErrorMapper.insert("AAA", "20");
+
+//        knownErrorMapper.insert(record);
 //        KnownError error = knownErrorMapper.findByName("AAA");
 
 //        Assert.assertEquals(20, error.getId());

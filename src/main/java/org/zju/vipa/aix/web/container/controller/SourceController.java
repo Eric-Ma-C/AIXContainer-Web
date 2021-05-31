@@ -1,7 +1,6 @@
 package org.zju.vipa.aix.web.container.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.zju.vipa.aix.container.common.utils.JsonUtils;
 import org.zju.vipa.aix.web.container.api.response.AixResponse;
@@ -110,9 +109,7 @@ public class SourceController {
     @PostMapping("/delete")
     public AixResponse deleteById(@RequestBody String body) {
         String id = JsonUtils.getValue(body, "id");
-
         try {
-
             boolean ok = sourceService.deleteById(id);
 
             return ok ? new AixResponse(Code.SUCCESS) : new AixResponse(Code.FAILED, "删除失败!");

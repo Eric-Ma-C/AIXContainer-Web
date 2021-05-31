@@ -36,7 +36,6 @@ public class RpcClient {
         }
     }
 
-
     public static RpcClient getInstance() {
         return RpcClientHolder.INSTANCE;
     }
@@ -52,7 +51,7 @@ public class RpcClient {
         // 连接注册中心配置
         RegistryConfig registry = new RegistryConfig();
 //        registry.setAddress("zookeeper://127.0.0.1:2181");
-        registry.setAddress(NetworkConfig.ZK_SERVER_URL);
+        registry.setAddress(PropertyUtils.getProperty("application.properties","zk.server.url","zookeeper://120.79.221.129:2181"));
 
 
         // 注意：ReferenceConfig为重对象，内部封装了与注册中心的连接，以及与服务提供方的连接
