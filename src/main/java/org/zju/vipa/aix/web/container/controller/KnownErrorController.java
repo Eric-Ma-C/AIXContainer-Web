@@ -17,6 +17,7 @@ import java.util.List;
  * @Author: EricMa
  * @Description:
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/aix/known_error")
 public class KnownErrorController {

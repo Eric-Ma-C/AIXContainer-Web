@@ -15,6 +15,7 @@ import java.util.List;
  * @Author: EricMa
  * @Description:
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/aix/finished_task")
 public class FinishedTaskController {

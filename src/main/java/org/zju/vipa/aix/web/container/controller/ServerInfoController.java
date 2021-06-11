@@ -1,5 +1,6 @@
 package org.zju.vipa.aix.web.container.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import org.zju.vipa.aix.web.container.dubbo.RpcClient;
  * @Author: EricMa
  * @Description:
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/aix/server")
 public class ServerInfoController {

@@ -23,6 +23,7 @@ import java.util.Queue;
  * @Author: EricMa
  * @Description:
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/aix/client")
 public class ClientController {

@@ -18,6 +18,7 @@ import java.util.Queue;
  * @Author: EricMa
  * @Description: 注册设备管理
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/aix/device")
 public class DeviceController {
